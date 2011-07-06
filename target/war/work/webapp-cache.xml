@@ -19,6 +19,7 @@
           <string>WEB-INF/classes/elangsolutions/ml4fb/servicioML/CategoriaServlet.class</string>
           <string>WEB-INF/classes/elangsolutions/ml4fb/servicioML/CategoriesML.class</string>
           <string>WEB-INF/classes/elangsolutions/ml4fb/servicioML/FirstStepsApplication.class</string>
+          <string>WEB-INF/classes/elangsolutions/ml4fb/servicioML/GetWishListServlet.class</string>
           <string>WEB-INF/classes/elangsolutions/ml4fb/servicioML/HelloWorldResource.class</string>
           <string>WEB-INF/classes/elangsolutions/ml4fb/servicioML/MercadoLibre.class</string>
           <string>WEB-INF/classes/elangsolutions/ml4fb/servicioML/MercadoLibreDeprecated.class</string>

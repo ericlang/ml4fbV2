@@ -36,7 +36,14 @@
 		<servlet-name>removeWish</servlet-name>
 		<url-pattern>/removeWish</url-pattern>
 	</servlet-mapping>
-
+	<servlet>
+		<servlet-name>getWishList</servlet-name>
+		<servlet-class>elangsolutions.ml4fb.servicioML.GetWishListServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>getWishList</servlet-name>
+		<url-pattern>/getWishList</url-pattern>
+	</servlet-mapping>
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>

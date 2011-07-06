@@ -5,7 +5,6 @@ import javax.jdo.annotations.IdentityType;
 import javax.jdo.annotations.PersistenceCapable;
 import javax.jdo.annotations.Persistent;
 import javax.jdo.annotations.PrimaryKey;
-import com.google.appengine.api.users.User;
 
 @PersistenceCapable(identityType = IdentityType.APPLICATION)
 public class WishBean {
@@ -19,7 +18,7 @@ public class WishBean {
     private Long id;
 
 	@Persistent
-    private User user;
+    private String user;
 
 	@Persistent
     private String title;
@@ -37,9 +36,9 @@ public class WishBean {
 	 * Constructor
 	 */
 	
-	public WishBean(User user, String title, String imgURL, String itemId, String userName) {
+	public WishBean(String title, String imgURL, String itemId, String userName) {
 		super();
-		this.user = user;
+		this.user = userName;
 		this.title = title;
 		this.imgURL = imgURL;
 		this.itemId = itemId;
@@ -54,11 +53,11 @@ public class WishBean {
 		return id;
 	}
 	
-	public User getUser() {
+	public String getUser() {
 		return user;
 	}
 
-	public void setUser(User user) {
+	public void setUser(String user) {
 		this.user = user;
 	}
 

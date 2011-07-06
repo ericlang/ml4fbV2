@@ -16,8 +16,8 @@ $(document).ready(function() {
 		    html = "<p>Hola " + fb.user.name + "</p>";
 		    html += '<p><img src="' + fb.user.picture + '"/></p>';
 		    html += '<p><a href="#" onclick="fb.logout(); return false;">Salir</a></p>';
-		    $("#signInDiv").append(html);
-		   
+		    $("#signInDiv").append(html);	
+		    cargarWishList(fb.user);
 		  }
 		  		  
 		});

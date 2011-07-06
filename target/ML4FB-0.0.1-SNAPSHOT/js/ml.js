@@ -48,19 +48,38 @@ function appendarSubCategorias(children_categories, ulDestino) {
 };
 
 function login() {
-	  fb.login(function(){ 
-	    if (fb.logged) {
-	      
+	  
+	fb.login(function(){ 
+	
+		if (fb.logged) {
 	      html = "<p>Hola " + fb.user.name + "</p>";
 	      html += "<p><img src='" + fb.user.picture + "'/></p>";
 	      $("#signInDiv").append(html);
 	      $("#botLogin").hide();
+	      cargarWishList(fb.user);
 	    } else {
 	      alert("No se pudo identificar al usuario");
 	    }
 	  })
 	};
 
+function cargarWishList(usuario){
+	
+	$.ajax({
+		  url: "getWishList",
+		  timeout : 10000,
+		  type : "GET",
+		  data: {userId:usuario.id},
+		  success : function(data, status) {
+					var nuevo_ul = $("<ul></ul>");
+					$.each(data[2], function(i, categoria) {
+						addWishOnlyToUlTag(data)});
+					}
+					
+			});
+
+	
+}
 function cargarCategoriasPrincipal(ulDondeCargar, $) {
 
 	// Si no me pasan jQuery por parametro lo configuro por default
@@ -100,7 +119,7 @@ function creadorItem(categoria) {
 	});
 
 	lista_item.append(nombreCategoria);
-
+	
 	linkMostrar = $("<span style=\"	font-weight: bold;\">Ver</span>");
 	linkMostrar.addClass("linkMostrar");
 	linkMostrar.click(function() {
@@ -167,12 +186,13 @@ function crearElementoResultado(resultado) {
 
 	nuevoItem.append(imgMiniatura);
 	nuevoItem.append(resultado.title);
+	nuevoItem.append(" - $"+resultado.price);
 
 	agregarDiv = $("<div></div>");
 	agregarSpan = $("<span><b>Agregar</b></span>");
 	agregarSpan.attr("class", "linkMostrar");
 	$(agregarSpan).click(function() {
-		addWishWithAJAX(resultado.title, resultado.thumbnail, resultado.id)
+		addWishWithAJAX(resultado)
 	})
 
 	agregarDiv.append(agregarSpan);
@@ -182,16 +202,17 @@ function crearElementoResultado(resultado) {
 	return nuevoItem;
 }
 
-function addWishOnlyToUlTag(title, imgURL, id) {
+function addWishOnlyToUlTag(data) {
 
-	if (noEsItemRepetido(id)) {
+	if (!isInWishList(data.id)) {
 		newWish = $("<li></li>");
 
 		imageURL = $("<img />");
-		imageURL.attr("src", imgURL);
+		imageURL.attr("src", data.thumbnail);
 		newWish.append(imageURL);
-		newWish.append(title);
-		newWish.attr("id", id);
+		newWish.append(data.title);
+		newWish.append(" - $"+data.price);
+		newWish.attr("id", data.id);
 
 		agregarDiv = $("<div></div>");
 		agregarSpan = $("<span><b>Quitar</b></span>");
@@ -203,38 +224,25 @@ function addWishOnlyToUlTag(title, imgURL, id) {
 		agregarDiv.append(agregarSpan);
 		newWish.append(agregarDiv);
 		$("#wishList").append(newWish);
+		return true;
 	}
+	else
+		return false;
 }
 
-function addWishWithAJAX(title, imgURL, id) {
+function addWishWithAJAX(data) {
 
-	if (noEsItemRepetido(id)) {
-		newWish = $("<li></li>");
-
-		imageURL = $("<img />");
-		imageURL.attr("src", imgURL);
-		newWish.append(imageURL);
-		newWish.append(title);
-		newWish.attr("id", id);
-
-		agregarDiv = $("<div></div>");
-		agregarSpan = $("<span><b>Quitar</b></span>");
-		agregarSpan.attr("class", "linkMostrar");
-		$(agregarSpan).click(function() {
-			doQuitarWish($(this))
-		})
-
-		agregarDiv.append(agregarSpan);
-		newWish.append(agregarDiv);
-		$("#wishList").append(newWish);
-
+	if(addWishOnlyToUlTag(data))
+		{
+		//persisto igualmente deberia ser atomico
 		$.ajax({
 			url : "saveWish",
 			type : "POST",
 			data : {
-				title : title,
-				itemId : id,
-				imgURL : imgURL
+				userId : fb.user.id,
+				title : data.title,
+				itemId : data.id,
+				imgURL : data.thumbnail
 			}
 		});
 	}
@@ -245,7 +253,7 @@ function doQuitarWish(wish) {
 	$.ajax({
 		url : "removeWish",
 		type : "POST",
-		data : {
+		data : { 
 			itemId : itemIdParam
 		}
 	});
@@ -253,13 +261,14 @@ function doQuitarWish(wish) {
 
 }
 
-function noEsItemRepetido(id) {
+function isInWishList(id) {
 	var wishes = $("#wishList");
-	var r = true;
-
+	var r = false;
+	//var wish = $("#"+id);
+	//return $.contains(wish,wishes);
 	$.each(wishes[0].children, function(i, wish) {
 		if (wish.id == id) {
-			r = false;
+			r = true;
 		}
 	});
 	return r;

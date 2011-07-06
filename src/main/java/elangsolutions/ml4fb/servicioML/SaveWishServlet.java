@@ -19,15 +19,16 @@ public class SaveWishServlet extends HttpServlet {
 
 	public void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws IOException {
-		UserService userService = UserServiceFactory.getUserService();
+		//UserService userService = UserServiceFactory.getUserService();
 
-		User user = userService.getCurrentUser();
+		//User user = userService.getCurrentUser();
+		String userId = req.getParameter("userId");
 		String title = req.getParameter("title");
 		String imgURL = req.getParameter("imgURL");
 		String itemId = req.getParameter("itemId");
-		String userName = user.getNickname();
+		//String userName = user.getNickname();
 
-		WishBean wishBean = new WishBean(user, title, imgURL, itemId, userName);
+		WishBean wishBean = new WishBean(userId, title, imgURL, itemId);
 
 		PersistenceManager pm = PMF.get().getPersistenceManager();
 		try {
