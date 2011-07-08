@@ -56,7 +56,7 @@ function login() {
 	      html += "<p><img src='" + fb.user.picture + "'/></p>";
 	      $("#signInDiv").append(html);
 	      $("#botLogin").hide();
-	      cargarWishList(fb.user);
+	      cargarWishList(fb.user.id);
 	    } else {
 	      alert("No se pudo identificar al usuario");
 	    }
@@ -69,13 +69,20 @@ function cargarWishList(usuario){
 		  url: "getWishList",
 		  timeout : 10000,
 		  type : "GET",
-		  data: {userId:usuario.id},
+		  data: {userId:usuario},
 		  success : function(data, status) {
-					var nuevo_ul = $("<ul></ul>");
-					$.each(data[2], function(i, categoria) {
-						addWishOnlyToUlTag(data)});
-					}
 					
+					$.each(data, function(i, wish) {
+						formatedWish = {
+										id : wish.itemId,
+										title : wish.title,
+										thumbnail : wish.imgURL,
+										price : "0,00"
+										};
+						addWishOnlyToUlTag(formatedWish);
+					});
+					
+			}
 			});
 
 	

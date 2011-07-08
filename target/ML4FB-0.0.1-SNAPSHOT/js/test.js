@@ -4,7 +4,6 @@
  
  
 var ulMock = $("<ul></ul>");
-var fbMock = {name : Eric, id: 1111664570};
 ulMock.append = function() {
 			ok(true, "se 'append' un elemento");	
 };
@@ -163,11 +162,11 @@ $(document).ready(function(){
 	
 	});
 		
-	test("Consultar lista persistida, integración con FB", function(){
+	/*test("Verificar login fb, integración con FB", function(){
 		stop(3000);
 		
 		setTimeout(function() {
-							notEqual(c.logged, "", "El Usuario no esta logueado");
+							notEqual(fb.logged, "", "El Usuario no esta logueado");
 							start();
 						}, 3500);
 	

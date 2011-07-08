@@ -20,6 +20,7 @@
           <string>WEB-INF/classes/elangsolutions/ml4fb/servicioML/CategoriesML.class</string>
           <string>WEB-INF/classes/elangsolutions/ml4fb/servicioML/FirstStepsApplication.class</string>
           <string>WEB-INF/classes/elangsolutions/ml4fb/servicioML/GetWishListServlet.class</string>
+          <string>WEB-INF/classes/elangsolutions/ml4fb/servicioML/GetWishServlet.class</string>
           <string>WEB-INF/classes/elangsolutions/ml4fb/servicioML/HelloWorldResource.class</string>
           <string>WEB-INF/classes/elangsolutions/ml4fb/servicioML/MercadoLibre.class</string>
           <string>WEB-INF/classes/elangsolutions/ml4fb/servicioML/MercadoLibreDeprecated.class</string>
@@ -78,7 +79,6 @@
         <scope>compile</scope>
         <exclusions/>
         <optional>false</optional>
-        <modelEncoding>UTF-8</modelEncoding>
       </dependency>
       <targetFileName>gae-runtime-1.4.3.pom</targetFileName>
     </org.apache.maven.plugin.war.util.DependencyInfo>
@@ -91,7 +91,6 @@
         <scope>runtime</scope>
         <exclusions/>
         <optional>false</optional>
-        <modelEncoding>UTF-8</modelEncoding>
       </dependency>
       <targetFileName>datanucleus-core-1.1.5.jar</targetFileName>
     </org.apache.maven.plugin.war.util.DependencyInfo>
@@ -104,7 +103,6 @@
         <scope>compile</scope>
         <exclusions/>
         <optional>false</optional>
-        <modelEncoding>UTF-8</modelEncoding>
       </dependency>
       <targetFileName>jta-1.1.jar</targetFileName>
     </org.apache.maven.plugin.war.util.DependencyInfo>
@@ -117,7 +115,6 @@
         <scope>provided</scope>
         <exclusions/>
         <optional>false</optional>
-        <modelEncoding>UTF-8</modelEncoding>
       </dependency>
     </org.apache.maven.plugin.war.util.DependencyInfo>
     <org.apache.maven.plugin.war.util.DependencyInfo>
@@ -129,7 +126,6 @@
         <scope>runtime</scope>
         <exclusions/>
         <optional>false</optional>
-        <modelEncoding>UTF-8</modelEncoding>
       </dependency>
       <targetFileName>standard-1.1.2.jar</targetFileName>
     </org.apache.maven.plugin.war.util.DependencyInfo>
@@ -142,7 +138,6 @@
         <scope>compile</scope>
         <exclusions/>
         <optional>false</optional>
-        <modelEncoding>UTF-8</modelEncoding>
       </dependency>
       <targetFileName>slf4j-api-1.6.1.jar</targetFileName>
     </org.apache.maven.plugin.war.util.DependencyInfo>
@@ -155,7 +150,6 @@
         <scope>compile</scope>
         <exclusions/>
         <optional>false</optional>
-        <modelEncoding>UTF-8</modelEncoding>
       </dependency>
       <targetFileName>logback-classic-0.9.24.jar</targetFileName>
     </org.apache.maven.plugin.war.util.DependencyInfo>
@@ -168,7 +162,6 @@
         <scope>test</scope>
         <exclusions/>
         <optional>false</optional>
-        <modelEncoding>UTF-8</modelEncoding>
       </dependency>
     </org.apache.maven.plugin.war.util.DependencyInfo>
     <org.apache.maven.plugin.war.util.DependencyInfo>
@@ -180,7 +173,6 @@
         <scope>test</scope>
         <exclusions/>
         <optional>false</optional>
-        <modelEncoding>UTF-8</modelEncoding>
       </dependency>
     </org.apache.maven.plugin.war.util.DependencyInfo>
     <org.apache.maven.plugin.war.util.DependencyInfo>
@@ -192,7 +184,6 @@
         <scope>test</scope>
         <exclusions/>
         <optional>false</optional>
-        <modelEncoding>UTF-8</modelEncoding>
       </dependency>
     </org.apache.maven.plugin.war.util.DependencyInfo>
     <org.apache.maven.plugin.war.util.DependencyInfo>
@@ -204,7 +195,6 @@
         <scope>compile</scope>
         <exclusions/>
         <optional>false</optional>
-        <modelEncoding>UTF-8</modelEncoding>
       </dependency>
       <targetFileName>org.restlet.jse-org.restlet-2.0.0.jar</targetFileName>
     </org.apache.maven.plugin.war.util.DependencyInfo>
@@ -217,7 +207,6 @@
         <scope>compile</scope>
         <exclusions/>
         <optional>false</optional>
-        <modelEncoding>UTF-8</modelEncoding>
       </dependency>
       <targetFileName>org.restlet.ext.simple-2.0.0.jar</targetFileName>
     </org.apache.maven.plugin.war.util.DependencyInfo>
@@ -230,7 +219,6 @@
         <scope>compile</scope>
         <exclusions/>
         <optional>false</optional>
-        <modelEncoding>UTF-8</modelEncoding>
       </dependency>
       <targetFileName>org.restlet.ext.servlet-2.0.0.jar</targetFileName>
     </org.apache.maven.plugin.war.util.DependencyInfo>
@@ -245,11 +233,9 @@
           <org.apache.maven.model.Exclusion>
             <artifactId>transaction-api</artifactId>
             <groupId>javax.transaction</groupId>
-            <modelEncoding>UTF-8</modelEncoding>
           </org.apache.maven.model.Exclusion>
         </exclusions>
         <optional>false</optional>
-        <modelEncoding>UTF-8</modelEncoding>
       </dependency>
       <targetFileName>javax.jdo-jdo2-api-2.3-eb.jar</targetFileName>
     </org.apache.maven.plugin.war.util.DependencyInfo>
@@ -262,7 +248,6 @@
         <scope>compile</scope>
         <exclusions/>
         <optional>false</optional>
-        <modelEncoding>UTF-8</modelEncoding>
       </dependency>
       <targetFileName>httpclient-4.1.1.jar</targetFileName>
     </org.apache.maven.plugin.war.util.DependencyInfo>
@@ -276,7 +261,6 @@
         <scope>compile</scope>
         <exclusions/>
         <optional>false</optional>
-        <modelEncoding>UTF-8</modelEncoding>
       </dependency>
       <targetFileName>json-lib-2.4-jdk15.jar</targetFileName>
     </org.apache.maven.plugin.war.util.DependencyInfo>
@@ -289,7 +273,6 @@
         <scope>test</scope>
         <exclusions/>
         <optional>false</optional>
-        <modelEncoding>UTF-8</modelEncoding>
       </dependency>
     </org.apache.maven.plugin.war.util.DependencyInfo>
   </dependenciesInfo>

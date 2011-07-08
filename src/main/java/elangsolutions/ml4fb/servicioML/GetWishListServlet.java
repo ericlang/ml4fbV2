@@ -22,7 +22,9 @@ public class GetWishListServlet extends HttpServlet {
 		
 		
 		String userId = req.getParameter("userId");
-	
+		
+		resp.setContentType("application/json; charset=utf-8");
+		
 		PrintWriter out = resp.getWriter();
 		
 		PersistenceManager pm = PMF.get().getPersistenceManager();

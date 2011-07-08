@@ -17,13 +17,14 @@ $(document).ready(function() {
 		    html += '<p><img src="' + fb.user.picture + '"/></p>';
 		    html += '<p><a href="#" onclick="fb.logout(); return false;">Salir</a></p>';
 		    $("#signInDiv").append(html);	
-		    cargarWishList(fb.user);
+		    cargarWishList(fb.user.id);
 		  }
 		  		  
 		});
 
 		
 	cargarCategoriasPrincipal($("#main_categories"));
+	
 	
 	$("#formBuscar").submit( function(){
 			buscarArticuloXString("q=" + $("#txtBuscar").val(), $("#listaBusqueda"));
