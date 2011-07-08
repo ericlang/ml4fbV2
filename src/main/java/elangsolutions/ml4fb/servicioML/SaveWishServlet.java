@@ -28,7 +28,7 @@ public class SaveWishServlet extends HttpServlet {
 		String itemId = req.getParameter("itemId");
 		//String userName = user.getNickname();
 
-		WishBean wishBean = new WishBean(userId, title, imgURL, itemId);
+		WishBean wishBean = new WishBean(userId, title, imgURL, itemId, "");
 
 		PersistenceManager pm = PMF.get().getPersistenceManager();
 		try {

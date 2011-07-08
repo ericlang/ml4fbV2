@@ -29,16 +29,18 @@ public class WishBean {
 	@Persistent
     private String itemId;
 	
+	@Deprecated
 	@Persistent
 	private String userName;
 
 	/**
 	 * Constructor
+	 * @param userId TODO
 	 */
 	
-	public WishBean(String title, String imgURL, String itemId, String userName) {
+	public WishBean(String userId, String title, String imgURL, String itemId, String userName) {
 		super();
-		this.user = userName;
+		this.user = userId;
 		this.title = title;
 		this.imgURL = imgURL;
 		this.itemId = itemId;
