@@ -7,6 +7,7 @@
           <string>WEB-INF/appengine-web.xml</string>
           <string>css/index.css</string>
           <string>img/ajax-loader.gif</string>
+          <string>img/Thumbs.db</string>
           <string>index.jsp</string>
           <string>js/facebook.js</string>
           <string>js/init.js</string>

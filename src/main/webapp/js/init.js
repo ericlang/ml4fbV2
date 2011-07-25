@@ -7,12 +7,18 @@
  *****************************************************/
  
 $(document).ready(function() {
-
+	/*Testing*/
+	//fb.user = {id:"123"};
+	/*Testing*/
 	
 	fb.ready(function(){ 
 		  if (fb.logged)
 		  {
-		    
+		    /***
+		     * Esconder el botón conectar
+		     */
+			$("#botLogin").hide();
+			
 		    html = "<p>Hola " + fb.user.name + "</p>";
 		    html += '<p><img src="' + fb.user.picture + '"/></p>';
 		    html += '<p><a href="#" onclick="fb.logout(); return false;">Salir</a></p>';
@@ -30,4 +36,26 @@ $(document).ready(function() {
 			buscarArticuloXString("q=" + $("#txtBuscar").val(), $("#listaBusqueda"));
 			return false;
 	});
+	$("#postWall").click(
+			function (){
+				 FB.ui(
+						   {
+						     method: 'feed',
+						     name: 'Facebook Dialogs',
+						     link: 'http://developers.facebook.com/docs/reference/dialogs/',
+						     picture: 'http://fbrell.com/f8.jpg',
+						     caption: 'Reference Documentation',
+						     description: 'Dialogs provide a simple, consistent interface for applications to interface with users.',
+						     message: 'Facebook Dialogs are easy!'
+						   },
+						   function(response) {
+						     if (response && response.post_id) {
+						       alert('Post was published.');
+						     } else {
+						       alert('Post was not published.');
+						     }
+						   }
+						 );
+			}
+			)
 });

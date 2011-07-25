@@ -29,10 +29,10 @@ text-decoration: underline;
 
 #divisionIzquierda{
 	float:left;
-	width: 380px;
+	width: 345px;
 	overflow: visible;
 	font-size: 14px;
-		background-color: #FAFAFA; 
+	background-color: #FAFAFA; 
 	
 	
 }
@@ -148,8 +148,11 @@ ul#wishList li img{
 }
 
 #signInDiv{
-		width: 520px;
 	background-color: #E6E6E6; 		
+}
+#signInDiv p{
+	display: inline;
+	margin: 10px;
 }
 
 #divisionWishList{

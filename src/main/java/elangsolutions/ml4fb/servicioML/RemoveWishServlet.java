@@ -24,28 +24,23 @@ public class RemoveWishServlet extends HttpServlet {
 	
 	public void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws IOException {
-		UserService userService = UserServiceFactory.getUserService();
-
-		User user = userService.getCurrentUser();
+		
 		String itemId = req.getParameter("itemId");
-		String userName = user.getNickname();
+		String userId = req.getParameter("userId");
 
 		PersistenceManager pm = PMF.get().getPersistenceManager();
 		try {
 			
-			String query = "select from " + WishBean.class.getName();
-			@SuppressWarnings("unchecked")
-			List<WishBean> result = (List<WishBean>) pm.newQuery(query).execute();
-			for(WishBean w : result){
-				if(w.getItemId().equals(itemId) && w.getUserName().equals(userName)){
-					keyToRemove = w.getId();
-					WishBean wish = pm.getObjectById(WishBean.class,keyToRemove);
+			Query query = pm.newQuery(WishBean.class);
+			query.setFilter( "user == '"+ userId +"' && itemId == '"+ itemId +"'");
+			
+			List<WishBean> wishes = (List<WishBean>) query.execute();
+			
+			for(WishBean wish : wishes){
 					pm.deletePersistent(wish);
 				}
 			}
-			
-			
-		} finally {
+		finally {
 			pm.close();
 		}
 	}

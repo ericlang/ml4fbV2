@@ -20,6 +20,8 @@
 <body>
 	<div id="signInDiv"> 
 		<input class="btn"  id="botLogin" OnClick="login()" value="Conectar"/>
+		<div id="logoCargando"><img src="img/ajax-loader.gif" /></div>
+		<div id="postWall">Compartir</div>
 	</div>
 	<div id="divisionIzquierda">
 		<ul id="main_categories"></ul>
@@ -36,6 +38,7 @@
 		</div>
 	</div>
 	<div id="divisionWishList">
+	<h3>WishList</h3>
 		<ul id="wishList"></ul>
 	</div>
  <div id="fb-root"></div>

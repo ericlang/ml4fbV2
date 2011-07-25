@@ -261,7 +261,8 @@ function doQuitarWish(wish) {
 		url : "removeWish",
 		type : "POST",
 		data : { 
-			itemId : itemIdParam
+			itemId : itemIdParam,
+			userId : fb.user.id
 		}
 	});
 	wish.parent().parent().remove();
