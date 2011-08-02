@@ -21,26 +21,30 @@
 	<div id="signInDiv"> 
 		<input class="btn"  id="botLogin" OnClick="login()" value="Conectar"/>
 		<div id="logoCargando"><img src="img/ajax-loader.gif" /></div>
-		<div id="postWall">Compartir</div>
 	</div>
+	
+	<div id="divisionWishList">
+		<h3>WishList</h3>
+		<input class="btn" id="postWall" type="button" OnClick="publicarEnMuroFB();" value="Compartir">
+		<ul id="wishList"></ul>
+	</div>
+	
 	<div id="divisionIzquierda">
 		<ul id="main_categories"></ul>
 	</div>
+
 	<div id="divisionDerecha">
 		<form id="formBuscar">
 			<input id="txtBuscar" class="input" /> 
 			<input class="btn"  id="btBuscar" type="submit" value="Buscar"> 
-			<input class="btn" id="btPublicar" type="button" OnClick="publicarEnMuroFB();" value="Compartir">
+			
 		</form>
 		<div id="resultadoBusqueda">
 			<ul id="listaBusqueda">
 			</ul>
 		</div>
 	</div>
-	<div id="divisionWishList">
-	<h3>WishList</h3>
-		<ul id="wishList"></ul>
-	</div>
+
  <div id="fb-root"></div>
  <script src="http://connect.facebook.net/en_US/all.js"></script>
  <script>

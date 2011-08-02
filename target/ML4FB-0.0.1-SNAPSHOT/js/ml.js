@@ -84,9 +84,58 @@ function cargarWishList(usuario){
 					
 			}
 			});
+}
 
+function clickPostearEnWall(usuario){
+
+	$.ajax({
+		  url: "getWishList",
+		  timeout : 10000,
+		  type : "GET",
+		  data: {userId:usuario},
+		  success : function(data, status) {
+			  
+			  var wishList = {}
+			  $.each(data, function(i, wish) {
+					formatedWish = {
+									id : wish.itemId,
+									title : wish.title,
+									thumbnail : wish.imgURL,
+									price : "0,00"
+									};
+					wishList[i] = formatedWish;
+			  });
+			  postearEnWall(wishList);
+		  }
+	});
 	
 }
+
+function postearEnWall(wishList){
+	var imgPrimerWish = wishList[0].thumbnail;
+	var linkMercadoLibre = "http://mercadolibre.com.ar";
+	var nombre = 'Este es mi WishList para mi cumplea&ntilde;os';
+	var titulo = 'Organ&iacute;cense y c&oacute;mprenme algo de esto.';
+	
+	var descripcion = '';
+	$.each(wishList, function(i, wish){
+		descripcion = descripcion + ' ' + wish.title + ';'; 
+	});
+	
+	 FB.ui(
+		   {
+		     method: 'feed',
+		     name: nombre,
+		     link: linkMercadoLibre,
+		     picture: imgPrimerWish,
+		     caption: titulo,
+		     description: descripcion,
+		   }
+	);
+	
+	
+}
+
 function cargarCategoriasPrincipal(ulDondeCargar, $) {
 
 	// Si no me pasan jQuery por parametro lo configuro por default
